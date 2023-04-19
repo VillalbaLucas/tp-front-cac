@@ -1,12 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box !important;
-}
-
-aside {
-    height: 50vh;
-}
 footer {
     height: 100vh;
 }
@@ -29,6 +20,18 @@ footer {
 .article-cards{
     min-height: 50vh;
 }
+
+.links-info{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: aqua;
+}
+
+.links-info a{
+    text-decoration: none;
+}
+
 
 @media  screen and (max-width: 992px){
     .header-card {
