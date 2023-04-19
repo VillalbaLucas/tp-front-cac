@@ -19,6 +19,10 @@
     margin: 10%;
 }
 
+.article-cards{
+    min-height: 50vh;
+}
+
 @media  screen and (max-width: 992px){
     .header-card {
         min-width: 90%;
