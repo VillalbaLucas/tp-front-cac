@@ -35,8 +35,18 @@ footer {
 
 @media  screen and (max-width: 992px){
     .header-card {
-        min-width: 90%;
+        font-size: 0.9rem;
+        min-width: 95%;
         text-align: center;
-        padding: 0 10%;
+        padding: 0 2%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .card-text{
+        font-size: 0.8rem;
+    }
+    .card-title {
+        font-size: 1rem;
     }
 }
