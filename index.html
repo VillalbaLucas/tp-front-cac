@@ -70,7 +70,7 @@
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo esse
                                 fugiat omnis minus nemo, ullam, facere, dolores atque nam ea iusto nobis non alias a
                                 natus delectus suscipit asperiores nulla.
-                            <p/>
+                                <p />
                         </div>
                     </div>
                 </div>
@@ -116,29 +116,30 @@
             </section>
         </aside>
     </main>
-    <footer class="container-fluid">
-        <section class="row">
-            <div class="col-3"></div>
-            <form class="col-6">
-                <legend>Anotate como orador para dar una charla ignite. Cuentanos de que quieres hablar!</legend>
-                <div class="row">
-                    <div class="col-3">
-                        <input type="text" placeholder="Nombre" class="form-control">
+    <footer class="d-flex flex-column justify-content-between">
+        <section class="d-flex my-5 flex-fill">
+            <div class="col-0 col-md-3"></div>
+            <div class="col-12 col-md-6 px-2 d-flex flex-column justify-content-center">
+                <legend class="text-center">Anotate como orador para dar una charla ignite. Cuentanos de que quieres hablar!</legend>
+                <form>
+                    <div class="row-cols-12 row-cols-md d-md-flex">
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Apellido" class="form-control">
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <input type="text" placeholder="Apellido" class="form-control">
-                    </div>
-                    <div class="col-6">
+                    <div class="row-cols-12 row-cols-md">
                         <textarea class="form-control" type="text" placeholder="Sobre que quieres hablar"></textarea>
                     </div>
-                </div>
-                <div class="row d-flex flex-column">
-                   
-                    <label class="col-6" for="form-label">Recuerda incluir un titulo para tu charla</label>
-                </div>
-                <button class="col-6 btn btn-success">Enviar</button>
-            </form>
-            <div class="col3"></div>
+                    <div class="row-cols-12 row-cols-md text-center">
+                        <label class="col-12 col-md" for="form-label">Recuerda incluir un titulo para tu charla</label>
+                        <button class="col-12 col-md btn btn-success">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-0 col-md-3"></div>
         </section>
         <section class="container-fluid">
             <ul class="links-info d-flex flex-column flex-lg-row">
