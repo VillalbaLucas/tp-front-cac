@@ -2,11 +2,16 @@ footer {
     height: 70vh;
 }
 
+.bg-color {
+    background-color:  #353535;
+}
+
 .header {
     background-image: url("./assets/img/ba1.jpg");
     background-size: cover;
     background-color: #353535;
     background-blend-mode: soft-light;
+    min-height: 90vh;
 }
 
 .header-card {
@@ -22,11 +27,11 @@ footer {
 }
 .links-info{
     list-style: none;
-    background-color: aqua;
 }
 
 .links-info a{
     text-decoration: none;
+    color: white;
 }
 
 
