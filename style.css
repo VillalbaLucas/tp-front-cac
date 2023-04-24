@@ -6,6 +6,7 @@ footer {
     background-color:  #353535;
 }
 
+
 .header {
     background-image: url("./assets/img/ba1.jpg");
     background-size: cover;
@@ -25,6 +26,11 @@ footer {
 .article-cards{
     min-height: 50vh;
 }
+
+legend {
+    font-size:  1.1rem !important;
+}
+
 .links-info{
     list-style: none;
 }
@@ -33,7 +39,6 @@ footer {
     text-decoration: none;
     color: white;
 }
-
 
 @media  screen and (max-width: 992px){
     .header-card {
@@ -50,5 +55,8 @@ footer {
     }
     .card-title {
         font-size: 1rem;
+    }
+    legend{
+        font-size: 1rem !important;
     }
 }
