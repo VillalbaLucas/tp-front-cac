@@ -8,10 +8,7 @@ footer {
 
 
 .header {
-    /* background-image: url("./assets/img/ba1.jpg");
-    background-size: cover; */
-    background-color: #353535;
-    background-blend-mode: soft-light;
+    background-color: black ;
     min-height: 90vh;
 }
 
