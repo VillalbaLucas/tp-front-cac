@@ -21,6 +21,7 @@ footer {
     color: white;
     text-align: end;
     margin: 10%;
+    z-index: 100;
 }
 
 .article-cards{
