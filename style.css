@@ -15,18 +15,6 @@ footer {
     min-height: 90vh;
 }
 
-.carousel {
-    height: 100vh;
-    width: 100vw;
-}
-
-.carousel-inner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
 .header-card {
     max-width: 40%; 
     height: auto;
