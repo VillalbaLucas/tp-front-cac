@@ -1,11 +1,15 @@
 const ticketInterfaz = document.querySelector('#ticketInterfaz')
 const homeInterfaz = document.querySelector('#homeInterfaz')
 
+const header = document.querySelector("header")
+const main = document.querySelector('main')
+const footer = document.querySelector('#footerForm')
+
 ticketInterfaz.addEventListener('click', mostrarInterfaz);
 homeInterfaz.addEventListener('click', mostrarHome);
 
-const header = document.querySelector("header")
-const headerClases = header.classList
+const headerClases = header.className
+const footerClases = footer.className
 
 function mostrarInterfaz() {
     removeHeader();
@@ -20,18 +24,17 @@ function mostrarInterfaz() {
 }
 
 
-function mostrarHome(headerClases) {
-    if (!header.classList == 'header-hidden') {
+function mostrarHome(){
+    if (!header.className == 'header-hidden' && !main.style == 'none') 
         return
-    }
-    alert("Volviendo a la pagina de inicio")
-    header.classList.remove('header-hidden')
-    console.log(header.classList)
-    header.classList.add
-    console.log(header.classList)
-
+    
+    header.className = headerClases
+    main.style.display = 'block'
+    footer.className = footerClases
 }
 
 function removeHeader() {
-    header.classList.value = 'header-hidden'
+    header.className = 'hidden'
+    main.style.display = 'none'
+    footer.className = 'hidden'
 }
