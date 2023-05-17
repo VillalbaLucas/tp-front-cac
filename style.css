@@ -12,6 +12,10 @@ footer {
     min-height: 90vh;
 }
 
+.header-hidden{
+    display: none;
+}
+
 .header-card {
     max-width: 40%; 
     height: auto;
