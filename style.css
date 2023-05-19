@@ -41,6 +41,13 @@ legend {
     text-decoration: none;
     color: white;
 }
+.section-container{
+    height: calc(100vh - (86px + 56px));
+}
+
+.formContainer {
+    width: 50vw;
+}
 
 @media  screen and (max-width: 992px){
     .header-card {
@@ -60,6 +67,12 @@ legend {
     }
     legend{
         font-size: 1rem !important;
+    }
+    .formContainer{
+        width: 90vw;
+    }
+    .section-container{
+        height: auto;
     }
 }
 

@@ -17,7 +17,7 @@ const headerClases = header.className
 const footerClases = footer.className
 
 function interfazTicket() {
-    removeHeader();
+    removeHome();
     console.log("Area main despejada");
 
     if(!templateMain.className == 'hidden') {
@@ -37,7 +37,7 @@ function mostrarHome(){
     document.querySelector('footer').style.height = '70vh'
 }
 
-function removeHeader() {
+function removeHome() {
     header.className = 'hidden'
     main.style.display = 'none'
     footer.className = 'hidden'
