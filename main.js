@@ -1,33 +1,36 @@
 const ticketInterfaz = document.querySelector('#ticketInterfaz')
 const homeInterfaz = document.querySelector('#homeInterfaz')
-
+// vista pagina principal
 const header = document.querySelector("header")
 const main = document.querySelector('main')
 const footer = document.querySelector('#footerForm')
-
-ticketInterfaz.addEventListener('click', mostrarInterfaz);
-homeInterfaz.addEventListener('click', mostrarHome);
+// vista formulario tickets
+const mainticket = document.querySelector('#ticketMain')
+const template = templateFormTicket.content.cloneNode(true)
+const templateMain = template.querySelector('#templateMain')
+ticketMain.appendChild(template)  
+//funciones para intercambiar las vistas
+// ticketInterfaz.addEventListener('click', interfazTicket);
+// homeInterfaz.addEventListener('click', mostrarHome);
 
 const headerClases = header.className
 const footerClases = footer.className
 
-function mostrarInterfaz() {
+function interfazTicket() {
     removeHeader();
-    console.log("comprando ticket");
+    console.log("Area main despejada");
 
-    // const template = templateTicket.content.cloneNode(true)
-    // const div = template.querySelector("div")
-    // // const span = document.createElement("span");
-    // div.innerHTML = "Seleccion de tickets"
-
-    // list.appendChild(template)
+    if(!templateMain.className == 'hidden') {
+        return
+    } 
+    templateMain.className = 'block'   
 }
 
 
 function mostrarHome(){
     if (!header.className == 'header-hidden' && !main.style == 'none') 
         return
-    
+    templateMain.className = 'hidden'
     header.className = headerClases
     main.style.display = 'block'
     footer.className = footerClases
@@ -38,3 +41,4 @@ function removeHeader() {
     main.style.display = 'none'
     footer.className = 'hidden'
 }
+interfazTicket()
