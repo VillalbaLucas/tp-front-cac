@@ -10,8 +10,8 @@ const template = templateFormTicket.content.cloneNode(true)
 const templateMain = template.querySelector('#templateMain')
 ticketMain.appendChild(template)  
 //funciones para intercambiar las vistas
-// ticketInterfaz.addEventListener('click', interfazTicket);
-// homeInterfaz.addEventListener('click', mostrarHome);
+ticketInterfaz.addEventListener('click', interfazTicket);
+homeInterfaz.addEventListener('click', mostrarHome);
 
 const headerClases = header.className
 const footerClases = footer.className
@@ -34,11 +34,13 @@ function mostrarHome(){
     header.className = headerClases
     main.style.display = 'block'
     footer.className = footerClases
+    document.querySelector('footer').style.height = '70vh'
 }
 
 function removeHeader() {
     header.className = 'hidden'
     main.style.display = 'none'
     footer.className = 'hidden'
+    document.querySelector('footer').style.height = 'auto'
 }
-interfazTicket()
+// interfazTicket()
