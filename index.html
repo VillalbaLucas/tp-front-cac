@@ -157,7 +157,7 @@
                         <p>VENTA</p>
                     </span>
                 </div>
-                <h2>VALOR DEL TICKET $</h2>
+                <h2>VALOR DEL TICKET $200</h2>
                 <form class="formContainer">
                     <div class="row row-cols-md-2 px-2">
                         <div class="col-12 form-floating mb-3 px-1">
@@ -176,11 +176,11 @@
                     <div class="row row-col-2">
                         <div class="col">
                             <label for="" class="form-label">Cantidad</label>
-                            <input type="text" class="form-control">
+                            <input type="number" id="inputCantidad" class="form-control">
                         </div>
                         <div class="col">
                             <label for="" class="form-label">Categoria</label>
-                            <select type="text" class="form-select">
+                            <select type="text" id="select" class="form-select">
                                 <option value="estudiante">Estudiante</option>
                                 <option value="trainee">Trainee</option>
                                 <option value="junior">Junior</option>
@@ -192,8 +192,8 @@
                         <input disabled type="text" id="disabledTextInput" class="form-control bg-primary-subtle">
                     </div>
                     <div class="row row-cols-3 justify-content-around">
-                        <button type="submit" class="btn btn-success">Borrar</button>
-                        <button type="submit" class="btn btn-success">Comprar</button>
+                        <button types="reset" class="btn btn-success" onclick="borrar()" >Borrar</button>
+                        <button type="submit" class="btn btn-success" onclick="comprar()" >Comprar</button>
                     </div>
                 </form>
             </section>
@@ -244,6 +244,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="./main.js"></script>
+    <script src="./form.js"></script>
 </body>
 
 </html>
