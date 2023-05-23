@@ -57,12 +57,14 @@ legend {
     position: absolute;
     text-align: center;
     border-radius: 8px;
-    padding: 2rem 2.5rem;
+    width: 340px;
+    height: 400px;
+    padding: 30px 10px;
     background-color: #fff;
     box-shadow: 3px 3px 10px #000;
     z-index: 100;
-    top: calc(50vh - (399px/2) );
-    left: calc(50vw - (314px/2));
+    top: calc(50vh - 200px );
+    left: calc(50vw - 170px);
 }
 
 @media  screen and (max-width: 992px){
@@ -89,6 +91,9 @@ legend {
     }
     .section-container{
         height: auto;
+    }
+    .card-info{
+        top: 100%;
     }
 }
 

@@ -24,11 +24,10 @@ function comprar(){
     const card = createInfoCard(total)
     mostrarInfoCard(card) 
 }
-
 function borrar(){
     inputs.forEach(i => i.value = '')
 }
-
+//Funciones para la card info
 const mostrarInfoCard = (card) => {
     const section = templateMain.querySelector('section').style
     section.opacity = '0.5'
