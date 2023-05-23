@@ -1,3 +1,7 @@
+:root {
+    --alto: calc(100vh - (86px + 56px));
+}
+
 footer {
     height: 70vh;
 }
@@ -42,11 +46,23 @@ legend {
     color: white;
 }
 .section-container{
-    height: calc(100vh - (86px + 56px));
+    height: var(--alto);
 }
 
 .formContainer {
     width: 50vw;
+}
+
+.card-info {
+    position: absolute;
+    text-align: center;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px #000;
+    z-index: 100;
+    top: calc(50vh - (399px/2) );
+    left: calc(50vw - (314px/2));
 }
 
 @media  screen and (max-width: 992px){

@@ -17,32 +17,48 @@ function comprar() {
     let total =  cantPrecio - ( cantPrecio * porcentaje.get(select))/100
     inputTotal.value = parseInt(total)
    
-    infoCompra(total)
-
+    const card = createInfoCard(total)
+    mostrarInfoCard(card) 
 }
 
 function borrar(){
     input.forEach(i => i.value = '')
 }
 
-const  infoCompra = (monto) => {
-    const div = document.createElement('div')
+const mostrarInfoCard = (card) => {
+    const section = templateMain.querySelector('section')
+    section.style.opacity = '0.5'
+    section.style.pointerEvents = 'none' 
+    templateMain.appendChild(card)
+}
+
+const createInfoCard = (monto) => {
+    const card = document.createElement('div')
 
     let date = new Date
     let hora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + 'hs'
     let fecha = date.getDate() + '/' + (Number(date.getMonth()) + 1) + '/' + date.getFullYear()
 
-    div.innerHTML = `
-        <h5 class="mb-3 py-3 border-bottom ">Informacion de la compra</h5>
+    card.id = 'cardInfo'
+    card.innerHTML = `
+        <h5 class="pb-4 border-bottom " >Informacion de la compra</h5>
         <p>Monto total a pagar: $${monto}</p>
         <p>Nombre: ${input[0].value}</p>
         <p>Apellido: ${input[1].value}</p>
         <p>Email: ${input[2].value}</p>
         <p>Fecha de compra: ${fecha}</p>
         <p>Hora de compra: ${hora}</p>
-        <button class="btn btn-success">Aceptar</button>
+        <button class="btn btn-success" onClick="removeCard(cardInfo)" >Aceptar</button>
     `
 
-    div.className='text-center pb-4 border border-1 rounded-3 w-25 position-absolute right-50 top-50 '
-    mainticket.appendChild(div)
+    card.classList.add('card-info')
+    return card
+}
+
+const removeCard = (card) => {
+    const section = templateMain.querySelector('section')
+    section.style.opacity = ''
+    section.style.pointerEvents = 'auto'
+    templateMain.removeChild(card)
+    borrar()
 }
