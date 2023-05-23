@@ -17,12 +17,8 @@ const headerClases = header.className
 const footerClases = footer.className
 
 function interfazTicket() {
+    if(!templateMain.className == 'hidden') return
     removeHome();
-    console.log("Area main despejada");
-
-    if(!templateMain.className == 'hidden') {
-        return
-    } 
     templateMain.className = 'block'   
 }
 

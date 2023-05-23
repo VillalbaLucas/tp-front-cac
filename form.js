@@ -1,4 +1,4 @@
-const input = document.querySelectorAll('#floatingInput')
+const input = form.querySelectorAll('#floatingInput')
 const cantidad = document.querySelector('#inputCantidad')
 const inputTotal = document.querySelector('#disabledTextInput')
 
@@ -26,9 +26,9 @@ function borrar(){
 }
 
 const mostrarInfoCard = (card) => {
-    const section = templateMain.querySelector('section')
-    section.style.opacity = '0.5'
-    section.style.pointerEvents = 'none' 
+    const section = templateMain.querySelector('section').style
+    section.opacity = '0.5'
+    section.pointerEvents = 'none' 
     templateMain.appendChild(card)
 }
 
