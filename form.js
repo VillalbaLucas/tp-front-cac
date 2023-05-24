@@ -1,20 +1,16 @@
-const form = document.forms.formulario
-const inputs = form.querySelectorAll('input')
-
 const porcentaje = new Map()
 porcentaje.set('estudiante', 80)
 porcentaje.set('trainee', 50)
 porcentaje.set('junior', 15)
 
-function borrar(){
-    inputs.forEach(i => i.value = '')
-}
-function comprar(){
 
-    let cantidad = inputs[3].value,
-        inputTotal = inputs[4],
-        name = inputs[0].value,
+function comprar(){
+    const form = document.querySelector('form')
+    const inputs = form.querySelectorAll('input')
+    let name = inputs[0].value,
         lastname = inputs[1].value
+        cantidad = inputs[3].value,
+        inputTotal = inputs[4]
 
     if(cantidad <= 0 || !validarCampo(name) || !validarCampo(lastname) ) return alert('Ingrese datos validos')
 
@@ -24,8 +20,13 @@ function comprar(){
 
     inputTotal.value = parseInt(total)
    
-    const card = CardInfo(total)
+    const card = CardInfo(total, inputs)
     mostrarInfoCard(card) 
+}
+function borrar(){
+    const form = document.querySelector('form')
+    const inputs = form.querySelectorAll('input')       
+    inputs.forEach(i => i.value = '')
 }
 //Funciones para la card info
 const mostrarInfoCard = (card) => {

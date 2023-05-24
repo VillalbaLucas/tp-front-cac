@@ -1,4 +1,4 @@
-const CardInfo = (monto) => {
+const CardInfo = (monto, inputs) => {
     const card = document.createElement('div')
 
     let date = new Date
