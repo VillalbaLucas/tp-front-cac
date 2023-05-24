@@ -2,9 +2,9 @@
     --alto: calc(100vh - (86px + 56px));
 }
 
-footer {
+/* footer {
     height: 70vh;
-}
+} */
 
 .bg-color {
     background-color:  #353535;
@@ -96,5 +96,3 @@ legend {
         top: 100%;
     }
 }
-
-/* template */

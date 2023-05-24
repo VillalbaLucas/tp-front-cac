@@ -1,42 +1,30 @@
-const ticketInterfaz = document.querySelector('#ticketInterfaz')
 const homeInterfaz = document.querySelector('#homeInterfaz')
-// vista pagina principal
+//Elementos de la pagina principal
 const header = document.querySelector("header")
 const main = document.querySelector('main')
-const footer = document.querySelector('#footerForm')
-// vista formulario tickets
-const mainticket = document.querySelector('#ticketMain')
-const template = templateFormTicket.content.cloneNode(true)
-const templateMain = template.querySelector('#templateMain')
-ticketMain.appendChild(template)  
+const footerSection= document.querySelector('#footerForm')
+const mainChildren = Array.from(main.children)
+const arrayElements = [header, main.childNodes[1], main.childNodes[3], footerSection]
+
 //funciones para intercambiar las vistas
 ticketInterfaz.addEventListener('click', interfazTicket);
 homeInterfaz.addEventListener('click', mostrarHome);
-
-const headerClases = header.className
-const footerClases = footer.className
+const vistaForm = Form() 
 
 function interfazTicket() {
-    if(!templateMain.className == 'hidden') return
     removeHome();
-    templateMain.className = 'block'   
+    main.appendChild(vistaForm)
 }
 
-
 function mostrarHome(){
-    if (!header.className == 'header-hidden' && !main.style == 'none') 
+    if (!header.style.display == 'block') 
         return
-    templateMain.className = 'hidden'
-    header.className = headerClases
-    main.style.display = 'block'
-    footer.className = footerClases
-    document.querySelector('footer').style.height = '70vh'
+
+    arrayElements.forEach(elements => elements.style.display = 'block')
+    main.removeChild(vistaForm)
 }
 
 function removeHome() {
-    header.className = 'hidden'
-    main.style.display = 'none'
-    footer.className = 'hidden'
-    document.querySelector('footer').style.height = 'auto'
+    arrayElements.forEach( element => element.style.display = 'none')
 }
-// interfazTicket()
+interfazTicket()
