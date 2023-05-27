@@ -48,7 +48,7 @@
                 <div class="row row-col-2">
                     <div class="col">
                         <label for="" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control">
+                        <input type="number" class="form-control" required>
                     </div>
                     <div class="col">
                         <label for="" class="form-label">Categoria</label>
@@ -64,8 +64,8 @@
                     <input disabled type="text" id="disabledTextInput" class="form-control bg-primary-subtle">
                 </div>
                 <div class="row row-cols-3 justify-content-around">
-                    <button types="reset" class="btn btn-success" onclick="borrar()" >Borrar</button>
-                    <button type="submit" class="btn btn-success" onclick="comprar()" >Comprar</button>
+                    <button type="reset" class="btn btn-success" onclick="borrar()" >Borrar</button>
+                    <button type="button" class="btn btn-success" onclick="comprar()" >Comprar</button>
                 </div>
             </form>
         </section>

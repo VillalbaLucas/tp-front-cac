@@ -27,3 +27,4 @@ function mostrarHome(){
 function removeHome() {
     arrayElements.forEach( element => element.style.display = 'none')
 }
+interfazTicket();
