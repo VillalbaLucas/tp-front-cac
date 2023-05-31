@@ -2,8 +2,19 @@ const porcentaje = new Map()
 porcentaje.set('estudiante', 80)
 porcentaje.set('trainee', 50)
 porcentaje.set('junior', 15)
+const colors = ['bg-primary', 'bg-success', 'bg-warning']
 
-
+//Tarjetas de descuentos
+const containDiscounts = document.querySelectorAll('#containDiscounts>div')
+for(let card of containDiscounts) {
+    card.addEventListener('mouseenter',  (e) => { 
+        e.target.classList.add(colors[e.target.dataset.id])
+    })
+    card.addEventListener('mouseleave', (e) => {
+        e.target.classList.remove(colors[e.target.dataset.id])
+    })
+}
+//funciones para operar los inputs
 function comprar(){
     const inputs = document.querySelector('form').querySelectorAll('input')
     let name = inputs[0].value,
@@ -42,7 +53,6 @@ const removeCard = (card) => {
     formMain.removeChild(card)
     borrar()
 }
-
 // Validaciones de formularios de nombres
 validarCampo = (cadena) => {
     const nameAccepted = /([a-z]+|[A-Z]+[a-z])/

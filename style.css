@@ -52,7 +52,9 @@ legend {
 .formContainer {
     width: 50vw;
 }
-
+#containDiscounts > div {
+    transition: all 0.2s;
+}
 .card-info {
     position: absolute;
     text-align: center;

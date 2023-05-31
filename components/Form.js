@@ -5,20 +5,20 @@
     article.innerHTML = `
         <section class="d-flex flex-column align-items-center section-container py-5">
             <div class="d-flex flex-column align-items-center">
-                <div class="d-flex flex-column flex-md-row gap-3">
-                    <div class="p-5 border border-primary text-center">
+                <div id="containDiscounts" class="d-flex flex-column flex-md-row gap-3">
+                    <div class="p-5 border border-primary text-center" data-id="0" >
                         <h6>Estudiante</h6>
                         <p>Tiene un descuento</p>
                         <b>80%</b>
                         <p>presentar documentacion</p>
                     </div>
-                    <div class="p-5 border border-success text-center">
+                    <div class=" p-5 border border-success text-center" data-id="1">
                         <h6>Trainee</h6>
                         <p>Tiene un descuento</p>
                         <b>50%</b>
                         <p>presentar documentacion</p>
                     </div>
-                    <div class="p-5 border border-warning text-center">
+                    <div class=" p-5 border border-warning text-center" data-id="2">
                         <h6>Junior</h6>
                         <p>Tiene un descuento</p>
                         <b>15%</b>
