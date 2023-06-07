@@ -37,8 +37,15 @@ const total = form.querySelector('#disabledTextInput')
 select.addEventListener('click' , () => {
     total.value = calcularCant(inputCant.value)
 })
-inputCant.addEventListener('mouseleave', (e) => {
-    total.value = calcularCant(e.target.value)
+inputCant.addEventListener('keyup', () => {
+    total.value = calcularCant(inputCant.value)
+})
+form.addEventListener('keyup', () => {
+    const inputs = form.querySelectorAll('input')
+    if(!validarCamposEntrada(inputs[0].value, inputs[1].value, inputs[3].value, inputs[3]) && /[a-zA-Z0-9]{6,}(@[a-z]{5,}.com)/.test(inputs[2].value))
+        form.querySelector('#btnComprar').disabled = false
+    else
+        form.querySelector('#btnComprar').disabled = true
 })
 //funciones para operar los inputs
 function comprar(){
@@ -47,10 +54,11 @@ function comprar(){
         lastname = inputs[1].value,
         cantidad = inputs[3].value
 
-    if(!inputs[3].checkValidity() || cantidad <= 0 || !validarCampo(name) || !validarCampo(lastname) ) return alert('Ingrese datos validos')
+    if(validarCamposEntrada(name, lastname, cantidad, inputs[3])) return alert('Ingrese datos validos')
     
     const card = CardInfo(calcularCant(cantidad), inputs)
-    mostrarInfoCard(card) 
+    viewInfoCard(card)
+    form.querySelector('#btnComprar').disabled = true
 }
 
 function calcularCant(cantidad){
@@ -70,7 +78,7 @@ function borrar(){
     inputs.forEach(i => i.value = '')
 }
 //Funciones para la interfa de la card info
-const mostrarInfoCard = (card) => {
+const viewInfoCard = (card) => {
     const section = formMain.querySelector('section').style
     section.opacity = '0.5'
     section.pointerEvents = 'none' 
@@ -85,20 +93,20 @@ const removeCard = (card) => {
 }
 // Validaciones de formularios de nombres
 validarCampo = (cadena) => {
-    const nameAccepted = /([a-z]+|[A-Z]+[a-z])/
+    const nameAccepted = /([a-z]{4,}|[A-Z]+[a-z]{3,})/
     return nameAccepted.test(cadena)
 }
-//Tarjetas de descuentos
-
+function validarCamposEntrada(name, lastname, cantidad, cantidadValid){
+    return (!cantidadValid.checkValidity() || cantidad <= 0 || !validarCampo(name) || !validarCampo(lastname) )
+}
+//Hover tarjetas de descuentos
 const colors = ['bg-primary', 'bg-success', 'bg-warning']
-const containDiscounts = document.querySelectorAll('#containDiscounts>div')
-
-console.log(containDiscounts)
+const containDiscounts = viewForm.querySelectorAll('#containDiscounts>div')
 for(let card of containDiscounts) {
-    card.addEventListener('mouseenter',  (e) => { 
+    card.addEventListener('mouseenter', enter = (e) => { 
         e.target.classList.add(colors[e.target.dataset.id])
     })
-    card.addEventListener('mouseleave', (e) => {
+    card.addEventListener('mouseleave', leave = (e) => {
         e.target.classList.remove(colors[e.target.dataset.id])
     })
 }

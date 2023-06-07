@@ -65,7 +65,7 @@
                 </div>
                 <div class="row row-cols-3 justify-content-around">
                     <button type="reset" class="btn btn-success" onclick="borrar()" >Borrar</button>
-                    <button type="button" class="btn btn-success" onclick="comprar()" >Comprar</button>
+                    <button id="btnComprar" type="button" class="btn btn-success" disabled onclick="comprar()" >Comprar</button>
                 </div>
             </form>
         </section>
