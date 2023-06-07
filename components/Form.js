@@ -45,10 +45,10 @@
                     <input type="email" id="floatingInput" class="form-control" placeholder="Email" required >
                     <label for="floatingInput" class="form-label">Correo</label>
                 </div>
-                <div class="row row-col-2">
+                <div id="containPrice" class="row row-col-2">
                     <div class="col">
                         <label for="" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" required>
+                        <input type="number" value="1" class="form-control" required>
                     </div>
                     <div class="col">
                         <label for="" class="form-label">Categoria</label>
