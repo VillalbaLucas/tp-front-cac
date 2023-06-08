@@ -60,12 +60,12 @@
                     </div>
                 </div>
                 <div class="input-group col my-4">
-                    <span class="input-group-text">Total $</span>
+                    <span class="input-group-text py-2">Total $</i></span>
                     <input disabled type="text" id="disabledTextInput" class="form-control bg-primary-subtle">
                 </div>
                 <div class="row row-cols-3 justify-content-around">
-                    <button type="reset" class="btn btn-success" onclick="borrar()" >Borrar</button>
-                    <button id="btnComprar" type="button" class="btn btn-success" disabled onclick="comprar()" >Comprar</button>
+                    <button type="reset" class="btn btn-success" onclick="borrar()" ><i class="bi bi-trash3"></i>Borrar</button>
+                    <button id="btnComprar" type="button" class="btn btn-success" disabled onclick="comprar()" ><i class="bi bi-cart"></i>Comprar</button>
                 </div>
             </form>
         </section>

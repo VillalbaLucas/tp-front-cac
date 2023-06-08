@@ -7,16 +7,18 @@ const CardInfo = (monto, inputs) => {
 
     card.id = 'cardInfo'
     card.innerHTML = `
-        <h5 class="pb-4 border-bottom " >Informacion de la compra</h5>
-        <p>Monto total a pagar: $${monto}</p>
-        <p>Nombre: ${inputs[0].value}</p>
-        <p>Apellido: ${inputs[1].value}</p>
-        <p>Email: ${inputs[2].value}</p>
-        <p>Fecha de compra: ${fecha}</p>
-        <p>Hora de compra: ${hora}</p>
-        <button class="btn btn-success" onClick="removeCard(cardInfo)" >Aceptar</button>
+        <div class="py-2 border rounded-2 fs-2 bg-success"><i class="bi bi-check2-circle"></i></div>
+        <h5 class="py-3 border-bottom" >¡Gracias por su compra!</h5>
+        <div  class="px-2">
+            <span class="px-2"><b>Nombre:</b> ${inputs[0].value}</span>
+            <span class="px-2"><b>Apellido:</b> ${inputs[1].value}</span>
+            <p><b>Email:</b> ${inputs[2].value}</p>
+            <p><b>Fecha de compra:</b> ${fecha}</p>
+            <p><b>Hora de compra:</b> ${hora}</p>
+            <p><b>Monto total pagado:</b> $${monto}</p>
+            <button class="btn btn-success px-3" onClick="removeCard(cardInfo)" >Okey!</button>
+        </div>
     `
-
     card.classList.add('card-info')
     return card
 }

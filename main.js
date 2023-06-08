@@ -8,7 +8,7 @@ const arrayElements = [header, main.childNodes[1], main.childNodes[3], footerSec
 
 //funciones para intercambiar las vistas
 ticketInterfaz.addEventListener('click', interfazTicket);
-homeInterfaz.addEventListener('click', mostrarHome);
+homeInterfaz.addEventListener('click', viewHome);
 const viewForm = Form() 
 
 function interfazTicket() {
@@ -16,7 +16,7 @@ function interfazTicket() {
     main.appendChild(viewForm)
 }
 
-function mostrarHome(){
+function viewHome(){
     if (!header.style.display == 'block') 
         return
 
@@ -24,7 +24,7 @@ function mostrarHome(){
     main.removeChild(viewForm)
 }
 
-function removeHome() {
+function  removeHome(){
     arrayElements.forEach( element => element.style.display = 'none')
 }
 // FUNCIONES DEL FORMULARIO
@@ -42,7 +42,7 @@ inputCant.addEventListener('keyup', () => {
 })
 form.addEventListener('keyup', () => {
     const inputs = form.querySelectorAll('input')
-    if(!validarCamposEntrada(inputs[0].value, inputs[1].value, inputs[3].value, inputs[3]) && /[a-zA-Z0-9]{6,}(@[a-z]{5,}.com)/.test(inputs[2].value))
+    if(!validityInputsValues(inputs[0].value, inputs[1].value, inputs[3].value, inputs[3]) && /[a-zA-Z0-9]{6,}(@[a-z]{5,}.com)/.test(inputs[2].value))
         form.querySelector('#btnComprar').disabled = false
     else
         form.querySelector('#btnComprar').disabled = true
@@ -52,30 +52,30 @@ function comprar(){
     const inputs = form.querySelectorAll('input')
     let name = inputs[0].value,
         lastname = inputs[1].value,
-        cantidad = inputs[3].value
+        tickets = inputs[3].value
 
-    if(validarCamposEntrada(name, lastname, cantidad, inputs[3])) return alert('Ingrese datos validos')
+    if(validityInputsValues(name, lastname, tickets, inputs[3])) return alert('Ingrese datos validos')
     
-    const card = CardInfo(calcularCant(cantidad), inputs)
+    const card = CardInfo(calcularCant(tickets), inputs)
     viewInfoCard(card)
     form.querySelector('#btnComprar').disabled = true
 }
 
-function calcularCant(cantidad){
+function calcularCant(tickets){
     const porcentaje = new Map()
     porcentaje.set('estudiante', 80)
     porcentaje.set('trainee', 50)
     porcentaje.set('junior', 15)
     
     let select = document.querySelector('#select').value,
-    cantPrecio = cantidad * 200,
+    cantPrecio = tickets * 200,
     total =  cantPrecio - ( cantPrecio * porcentaje.get(select))/100;
     return parseInt(total)
 }
 function borrar(){
-    const form = document.querySelector('form')
     const inputs = form.querySelectorAll('input')       
     inputs.forEach(i => i.value = '')
+    form.querySelector('#btnComprar').disabled = true
 }
 //Funciones para la interfa de la card info
 const viewInfoCard = (card) => {
@@ -96,8 +96,8 @@ validarCampo = (cadena) => {
     const nameAccepted = /([a-z]{4,}|[A-Z]+[a-z]{3,})/
     return nameAccepted.test(cadena)
 }
-function validarCamposEntrada(name, lastname, cantidad, cantidadValid){
-    return (!cantidadValid.checkValidity() || cantidad <= 0 || !validarCampo(name) || !validarCampo(lastname) )
+function validityInputsValues(name, lastname, tickets, inputTickets){
+    return (!inputTickets.checkValidity() || tickets <= 0 || !validarCampo(name) || !validarCampo(lastname) )
 }
 //Hover tarjetas de descuentos
 const colors = ['bg-primary', 'bg-success', 'bg-warning']
