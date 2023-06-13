@@ -43,12 +43,12 @@ inputCant.addEventListener('keyup', () => {
 form.addEventListener('keyup', () => {
     const inputs = form.querySelectorAll('input')
     if(!validityInputsValues(inputs[0].value, inputs[1].value, inputs[3].value, inputs[3]) && /[a-zA-Z0-9]{6,}(@[a-z]{5,}.com)/.test(inputs[2].value))
-        form.querySelector('#btnComprar').disabled = false
+        form.querySelector('#btnBuy').disabled = false
     else
-        form.querySelector('#btnComprar').disabled = true
+        form.querySelector('#btnBuy').disabled = true
 })
 //funciones para operar los inputs
-function comprar(){
+function buy(){
     const inputs = form.querySelectorAll('input')
     let name = inputs[0].value,
         lastname = inputs[1].value,
@@ -58,24 +58,24 @@ function comprar(){
     
     const card = CardInfo(calcularCant(tickets), inputs)
     viewInfoCard(card)
-    form.querySelector('#btnComprar').disabled = true
+    form.querySelector('#btnBuy').disabled = true
 }
 
 function calcularCant(tickets){
-    const porcentaje = new Map()
-    porcentaje.set('estudiante', 80)
-    porcentaje.set('trainee', 50)
-    porcentaje.set('junior', 15)
+    const porcentage = new Map()
+    porcentage.set('estudiante', 80)
+    porcentage.set('trainee', 50)
+    porcentage.set('junior', 15)
     
     let select = document.querySelector('#select').value,
-    cantPrecio = tickets * 200,
-    total =  cantPrecio - ( cantPrecio * porcentaje.get(select))/100;
+    quantityPrice = tickets * 200,
+    total =  quantityPrice - ( quantityPrice * porcentage.get(select))/100;
     return parseInt(total)
 }
-function borrar(){
+function emptyInputs(){
     const inputs = form.querySelectorAll('input')       
     inputs.forEach(i => i.value = '')
-    form.querySelector('#btnComprar').disabled = true
+    form.querySelector('#btnBuy').disabled = true
 }
 //Funciones para la interfa de la card info
 const viewInfoCard = (card) => {
@@ -89,12 +89,12 @@ const removeCard = (card) => {
     section.style.opacity = ''
     section.style.pointerEvents = 'auto'
     formMain.removeChild(card)
-    borrar()
+    emptyInputs()
 }
 // Validaciones de formularios de nombres
-validarCampo = (cadena) => {
+validarCampo = (input) => {
     const nameAccepted = /([a-z]{4,}|[A-Z]+[a-z]{3,})/
-    return nameAccepted.test(cadena)
+    return nameAccepted.test(input)
 }
 function validityInputsValues(name, lastname, tickets, inputTickets){
     return (!inputTickets.checkValidity() || tickets <= 0 || !validarCampo(name) || !validarCampo(lastname) )

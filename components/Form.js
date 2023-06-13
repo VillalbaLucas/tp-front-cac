@@ -64,8 +64,8 @@
                     <input disabled type="text" id="disabledTextInput" class="form-control bg-primary-subtle">
                 </div>
                 <div class="row row-cols-3 justify-content-around">
-                    <button type="reset" class="btn btn-success" onclick="borrar()" ><i class="bi bi-trash3"></i>Borrar</button>
-                    <button id="btnComprar" type="button" class="btn btn-success" disabled onclick="comprar()" ><i class="bi bi-cart"></i>Comprar</button>
+                    <button type="reset" class="btn btn-success" onclick="emptyInputs()" ><i class="bi bi-trash3"></i>emptyInputs</button>
+                    <button id="btnBuy" type="button" class="btn btn-success" disabled onclick="buy()" ><i class="bi bi-cart"></i>Comprar</button>
                 </div>
             </form>
         </section>
