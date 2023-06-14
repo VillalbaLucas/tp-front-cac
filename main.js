@@ -1,10 +1,9 @@
-const homeInterfaz = document.querySelector('#homeInterfaz')
+const homeInterfaz = document.querySelector('#homeInterfaz'),
 //Elementos de la pagina principal
-const header = document.querySelector("header")
-const main = document.querySelector('main')
-const footerSection= document.querySelector('#footerForm')
-const mainChildren = Array.from(main.children)
-const arrayElements = [header, main.childNodes[1], main.childNodes[3], footerSection]
+    header = document.querySelector('header'),
+    main = document.querySelector('main'),
+    footerSection= document.querySelector('#footerForm'),
+    arrayElements = [header, main.childNodes[1], main.childNodes[3], footerSection]
 
 //funciones para intercambiar las vistas
 ticketInterfaz.addEventListener('click', interfazTicket);
@@ -17,7 +16,7 @@ function interfazTicket() {
 }
 
 function viewHome(){
-    if (!header.style.display == 'block') 
+    if (!header.style.display == 'block' || !main.contains(viewForm)) 
         return
 
     arrayElements.forEach(elements => elements.style.display = 'block')
@@ -29,16 +28,16 @@ function  removeHome(){
 }
 // FUNCIONES DEL FORMULARIO
 // modificar el precio total
-const form = viewForm.querySelector('form')
-const inputCant = form.querySelectorAll('input')[3]
-const select = form.querySelector('#select')
-const total = form.querySelector('#disabledTextInput')
+const form = viewForm.querySelector('form'),
+    inputCant = form.querySelectorAll('input')[3],
+    select = form.querySelector('#select'),
+    total = form.querySelector('#disabledTextInput')
 
-select.addEventListener('click' , () => {
-    total.value = calcularCant(inputCant.value)
+select.addEventListener('change' , () => {
+    total.value = calculateQuantity(inputCant.value)
 })
 inputCant.addEventListener('keyup', () => {
-    total.value = calcularCant(inputCant.value)
+    total.value = calculateQuantity(inputCant.value)
 })
 form.addEventListener('keyup', () => {
     const inputs = form.querySelectorAll('input')
@@ -56,16 +55,16 @@ function buy(){
 
     if(validityInputsValues(name, lastname, tickets, inputs[3])) return alert('Ingrese datos validos')
     
-    const card = CardInfo(calcularCant(tickets), inputs)
+    const card = CardInfo(calculateQuantity(tickets), inputs)
     viewInfoCard(card)
     form.querySelector('#btnBuy').disabled = true
 }
 
-function calcularCant(tickets){
+function calculateQuantity(tickets){
     const porcentage = new Map()
-    porcentage.set('estudiante', 80)
-    porcentage.set('trainee', 50)
-    porcentage.set('junior', 15)
+    porcentage.set('Estudiante', 80)
+    porcentage.set('Trainee', 50)
+    porcentage.set('Junior', 15)
     
     let select = document.querySelector('#select').value,
     quantityPrice = tickets * 200,
@@ -100,13 +99,27 @@ function validityInputsValues(name, lastname, tickets, inputTickets){
     return (!inputTickets.checkValidity() || tickets <= 0 || !validarCampo(name) || !validarCampo(lastname) )
 }
 //Hover tarjetas de descuentos
-const colors = ['bg-primary', 'bg-success', 'bg-warning']
-const containDiscounts = viewForm.querySelectorAll('#containDiscounts>div')
+const colors = ['bg-primary', 'bg-success', 'bg-warning'],
+      containDiscounts = viewForm.querySelectorAll('#containDiscounts>div')
+let prevId = null
+
 for(let card of containDiscounts) {
-    card.addEventListener('mouseenter', enter = (e) => { 
-        e.target.classList.add(colors[e.target.dataset.id])
-    })
-    card.addEventListener('mouseleave', leave = (e) => {
-        e.target.classList.remove(colors[e.target.dataset.id])
+    card.addEventListener('click', (e) => {
+        const {currentTarget} = e
+        select.value = currentTarget.children[0].textContent
+        total.value = calculateQuantity(inputCant.value)
+        toggleBg(e)
+
     })
 }
+const toggleBg = (e) => {
+    const {currentTarget} = e
+    if(currentTarget.dataset.id == prevId) return;
+
+    if(prevId != null)
+        document.querySelector(`[data-id="${prevId}"]`).classList.remove(colors[prevId])
+    
+    prevId = currentTarget.dataset.id
+    currentTarget.classList.add(colors[currentTarget.dataset.id])
+}
+

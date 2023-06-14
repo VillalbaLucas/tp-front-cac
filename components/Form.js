@@ -53,9 +53,9 @@
                     <div class="col">
                         <label for="" class="form-label">Categoria</label>
                         <select type="text" id="select" class="form-select">
-                            <option value="estudiante">Estudiante</option>
-                            <option value="trainee">Trainee</option>
-                            <option value="junior">Junior</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Trainee">Trainee</option>
+                            <option value="Junior">Junior</option>
                         </select>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     <input disabled type="text" id="disabledTextInput" class="form-control bg-primary-subtle">
                 </div>
                 <div class="row row-cols-3 justify-content-around">
-                    <button type="reset" class="btn btn-success" onclick="emptyInputs()" ><i class="bi bi-trash3"></i>emptyInputs</button>
+                    <button type="reset" class="btn btn-success" onclick="emptyInputs()" ><i class="bi bi-trash3"></i>Borrar</button>
                     <button id="btnBuy" type="button" class="btn btn-success" disabled onclick="buy()" ><i class="bi bi-cart"></i>Comprar</button>
                 </div>
             </form>

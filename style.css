@@ -67,6 +67,15 @@ legend {
     top: calc(50vh - 200px );
     left: calc(50vw - 170px);
 }
+#containDiscounts>div:nth-child(1):hover{   
+    background-color: #0d6efd;
+}
+#containDiscounts>div:nth-child(2):hover{   
+    background-color: #198754;
+}
+#containDiscounts>div:nth-child(3):hover{   
+    background-color: #ffc107;
+}
 
 @media  screen and (max-width: 992px){
     .header-card {
