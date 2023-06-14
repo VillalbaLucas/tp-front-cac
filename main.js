@@ -39,6 +39,13 @@ select.addEventListener('change' , () => {
 inputCant.addEventListener('keyup', () => {
     total.value = calculateQuantity(inputCant.value)
 })
+inputCant.addEventListener('click', () => {
+    total.value = calculateQuantity(inputCant.value)
+})
+inputCant.addEventListener('wheel', (e) => {
+    e.preventDefault();
+});
+
 form.addEventListener('keyup', () => {
     const inputs = form.querySelectorAll('input')
     if(!validityInputsValues(inputs[0].value, inputs[1].value, inputs[3].value, inputs[3]) && /[a-zA-Z0-9]{6,}(@[a-z]{5,}.com)/.test(inputs[2].value))
@@ -109,7 +116,6 @@ for(let card of containDiscounts) {
         select.value = currentTarget.children[0].textContent
         total.value = calculateQuantity(inputCant.value)
         toggleBg(e)
-
     })
 }
 const toggleBg = (e) => {
